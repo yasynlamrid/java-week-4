@@ -10,8 +10,42 @@ import java.util.*;
  */
 public class Exercise5
 {
-    public void run()
+
+    public Exercise5()
     {
+
+        List<String> words = new ArrayList<>(List.of("apple", "banana", "apple", "orange", "banana", "apple"));
+        Map<String, Integer> wordsmap = run(words);
+
+
+        for (Map.Entry<String, Integer> entry : wordsmap.entrySet()) {
+            System.out.println(entry.getKey() + " → " + entry.getValue() );
+        }
+
+
+
+    }
+    public Map<String, Integer> run(List<String> words )
+    {
+        Map<String, Integer> mapCount = new HashMap<>();
+        for (String word : words){
+            if(mapCount.containsKey(word)){
+                mapCount.put(word, mapCount.get(word) + 1);
+            }else{
+                mapCount.put(word,1);
+            }
+
+
+        }
+        return  mapCount;
+
+    }
+
+
+    public static void main(String[] args){
+
+        new Exercise5();
+
 
     }
 }
